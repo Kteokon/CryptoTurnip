@@ -15,7 +15,7 @@ function getTime()
         minutes = '0' + minutes;
     }
     if (hours < 10){
-        hours = '0' + minutes;
+        hours = '0' + hours;
     }
     document.getElementById('timeDisplay').innerHTML = hours + ':' + minutes + ':' + seconds;
 }
