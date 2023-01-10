@@ -27,17 +27,34 @@ function getDay()
     var day = date.getDay();
     var month = date.getMonth();
     var date = date.getDate();
-    if(day < 10)
-    {
-        day = '0' + day;
-    }
     if(month < 10)
     {
         month++;
         month = '0' + month;
     }
-
-    document.getElementById('dayDisplay').innerHTML = date + '.' + month;
+    switch (day) {
+        case 1:
+            document.getElementById('dayDisplay').innerHTML = date + '.' + month + ", Понедельник";
+            break;
+        case 2:
+            document.getElementById('dayDisplay').innerHTML = date + '.' + month + ", Вторник";
+            break;
+        case 3:
+            document.getElementById('dayDisplay').innerHTML = date + '.' + month + ", Среда";
+            break;
+        case 4:
+            document.getElementById('dayDisplay').innerHTML = date + '.' + month + ", Четверг";
+            break;
+        case 5:
+            document.getElementById('dayDisplay').innerHTML = date + '.' + month + ", Пятница";
+            break;
+        case 6:
+            document.getElementById('dayDisplay').innerHTML = date + '.' + month + ", Суббота";
+            break;
+        case 7:
+            document.getElementById('dayDisplay').innerHTML = date + '.' + month + ", Воскресенье";
+            break;
+    }
 }
-setInterval(getDay, 0);
+setInterval(getDay, 1000);
 window.onload;
