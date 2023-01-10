@@ -4,8 +4,7 @@ function getTime()
     var hours = date.getHours();
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
-    var day = date.getDay();
-    //По надобности условие ниже повторить с minutes и hours
+
     if(seconds < 10)
     {
         seconds = '0' + seconds;
@@ -17,7 +16,28 @@ function getTime()
     if (hours < 10){
         hours = '0' + hours;
     }
-    document.getElementById('timeDisplay').innerHTML = hours + ':' + minutes + ':' + seconds;
+    document.getElementById('timeDisplay').innerHTML = "Время: " + hours + ':' + minutes + ':' + seconds;
 }
 setInterval(getTime, 0);
+window.onload;
+
+function getDay()
+{
+    var date = new Date();
+    var day = date.getDay();
+    var month = date.getMonth();
+    var date = date.getDate();
+    if(day < 10)
+    {
+        day = '0' + day;
+    }
+    if(month < 10)
+    {
+        month++;
+        month = '0' + month;
+    }
+
+    document.getElementById('dayDisplay').innerHTML = date + '.' + month;
+}
+setInterval(getDay, 0);
 window.onload;
