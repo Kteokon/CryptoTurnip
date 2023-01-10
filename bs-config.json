@@ -2,6 +2,8 @@
     "server": {
       "baseDir": [
         "./src",
+        "./css",
+        "./js",
         "./build/contracts"
       ],
       "routes": {

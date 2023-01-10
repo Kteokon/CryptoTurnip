@@ -7,6 +7,9 @@ contract CornShop {
     using SafeMath32 for uint32;
     using SafeMath16 for uint16;
 
+    uint minBoughtPrice = 0.001 ether;
+    uint maxBoughtPrice = 0.002 ether;
+
     event NewShop(uint shopId, uint pattern);
 
     uint patternDigits = 16;
@@ -23,10 +26,15 @@ contract CornShop {
     mapping (uint => address) public shopToOwner;
     mapping (address => uint) ownerShopCount;
 
-    function createShop() public {
-        uint id = shops.push(Shop(8, 0, false)) - 1;
-        shopToOwner[id] = msg.sender;
-        ownerShopCount[msg.sender] = ownerShopCount[msg.sender].add(1);
-        emit NewShop(id, 0);
+    constructor() public {
+        
+    }
+
+    function buyCorn() public {
+        
+    }
+
+    function sellCorn() public {
+        
     }
 }
