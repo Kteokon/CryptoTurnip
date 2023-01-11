@@ -11331,6 +11331,7 @@ section.masthead {
 section.masthead .masthead-content {
   z-index: 1;
   position: relative;
+  
 }
 section.masthead .masthead-content .masthead-heading {
   font-size: 4rem;

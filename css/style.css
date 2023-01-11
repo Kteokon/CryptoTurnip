@@ -10,6 +10,14 @@
  * Dummy devices (replace them with your own or something else entirely!)
  */
 
+a {
+    text-decoration: none;
+}
+
+#shadow {
+    text-shadow: 1px 1px 1px #000;
+}
+
 .product-device {
     position: absolute;
     right: 10%;
