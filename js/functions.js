@@ -58,3 +58,38 @@ function getDay()
 }
 setInterval(getDay, 1000);
 window.onload;
+
+function blockBuyButton(){
+    var day = new Date();
+    var hour = day.getHours();
+    if (day != 7 || hour < 11 || hour > 14){
+        document.getElementById('buyBtn').setAttribute("disabled", "disabled")
+    }
+    else  
+    {document.getElementById('buyBtn').setAttribute("active", "active")}
+}
+
+function blockSellButton(){
+    var day = new Date();
+    var hour = day.getHours();
+    if (day != 7 || hour < 8 || hour > 22){
+        document.getElementById('sellBtn').setAttribute("disabled", "disabled")
+    }
+    else  
+    {document.getElementById('sellBtn').setAttribute("active", "active")}
+}
+
+function blockUtilizButton(){
+    var day = new Date();
+    var hour = day.getHours();
+    if (day != 7 || hour < 0 || hour > 11){
+        document.getElementById('utilizBtn').setAttribute("disabled", "disabled")
+    }
+    else  
+    {document.getElementById('utilizBtn').setAttribute("active", "active")}
+}
+$(document).ready(function(){
+    blockBuyButton();
+    blockSellButton();
+    blockUtilizButton();
+});

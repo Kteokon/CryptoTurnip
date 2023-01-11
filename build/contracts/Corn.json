@@ -1,0 +1,170 @@
+{
+  "contractName": "Corn",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Corn.sol\":\"Corn\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Corn.sol\":{\"keccak256\":\"0xc1f9069b72ada268aebce010b62128240d55b12780bfa2b9976ab3e950a14b87\",\"urls\":[\"bzzr://4c0b13270917aeeab4c14e52475e34b2300005ce271abab3e3bd1625c20ba323\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058203936a96a2704852e9badf5dd073e6e26e9706577ad6805bb069349be6ecc7e8b0029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058203936a96a2704852e9badf5dd073e6e26e9706577ad6805bb069349be6ecc7e8b0029",
+  "sourceMap": "33:71:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;33:71:1;;;;;;;",
+  "deployedSourceMap": "33:71:1:-;;;;;",
+  "source": "pragma solidity >=0.5.0 <0.6.0;\n\ncontract Corn {\n    enum Status {\n        Fresh,\n        Rotten\n    }\n}",
+  "sourcePath": "D:\\University\\Modile_Dev\\CryptoTurnip\\contracts\\Corn.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Corn.sol",
+    "exportedSymbols": {
+      "Corn": [
+        295
+      ]
+    },
+    "id": 296,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 291,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 295,
+        "linearizedBaseContracts": [
+          295
+        ],
+        "name": "Corn",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Corn.Status",
+            "id": 294,
+            "members": [
+              {
+                "id": 292,
+                "name": "Fresh",
+                "nodeType": "EnumValue",
+                "src": "75:5:1"
+              },
+              {
+                "id": 293,
+                "name": "Rotten",
+                "nodeType": "EnumValue",
+                "src": "90:6:1"
+              }
+            ],
+            "name": "Status",
+            "nodeType": "EnumDefinition",
+            "src": "53:49:1"
+          }
+        ],
+        "scope": 296,
+        "src": "33:71:1"
+      }
+    ],
+    "src": "0:104:1"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Corn.sol",
+      "exportedSymbols": {
+        "Corn": [
+          295
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.5",
+            ".0",
+            "<",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 291,
+        "name": "PragmaDirective",
+        "src": "0:31:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            295
+          ],
+          "name": "Corn",
+          "scope": 296
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "Corn.Status",
+              "name": "Status"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "Fresh"
+                },
+                "id": 292,
+                "name": "EnumValue",
+                "src": "75:5:1"
+              },
+              {
+                "attributes": {
+                  "name": "Rotten"
+                },
+                "id": 293,
+                "name": "EnumValue",
+                "src": "90:6:1"
+              }
+            ],
+            "id": 294,
+            "name": "EnumDefinition",
+            "src": "53:49:1"
+          }
+        ],
+        "id": 295,
+        "name": "ContractDefinition",
+        "src": "33:71:1"
+      }
+    ],
+    "id": 296,
+    "name": "SourceUnit",
+    "src": "0:104:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-01-11T10:44:05.429Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -3,8 +3,8 @@
 <html lang="en" xmlns="">
 <link rel="stylesheet" href="../css/bootstrap.css"/>
 <link rel="stylesheet" href="/lib/bootstrap-icons/font/bootstrap-icons.css"/>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
 <script src="../js/functions.js"></script>
 <script src="../src/app.js"></script>
 <head>
@@ -23,8 +23,14 @@
             <li class="nav-item"><a href="#" class="nav-link text-white">FAQ</a></li>
             <li class="nav-item"><a href="../src/main.html" class="nav-link active bg-warning text-dark">Склад и магазин</a></li>
         </ul>
+        <div class="d-flex">
+            <button id='loginButton' onclick="" class="btn btn-lg btn-warning text-dark">
+                Login with MetaMask
+              </button>
+        </div>
         <!-- <div class="col"></div> -->
     </header>
+    <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
 <main class="container min-vh-100">
     <div class="container">
         <div class="row row-cols-md-3 justify-content-center" >
@@ -73,7 +79,7 @@
                                 <div class="container d-flex align-self-md-center justify-content-end">
                                     <p class="h4 px-md-5">Цена: 0.001</p>
                                 </div>
-                                <button type="button" class="w-50 btn btn-lg btn-warning">Купить</button>
+                                <button type="button" id="buyBtn" class="w-50 btn btn-lg btn-warning">Купить</button>
                             </div>
                         </div>
                         <div class="container">
@@ -82,7 +88,7 @@
                                 <div class="container d-flex align-self-md-center justify-content-end">
                                     <p class="h4 px-md-5">Цена: 0.001</p>
                                 </div>
-                                <button type="button" class="w-50 btn btn-lg btn-warning">Продать</button>
+                                <button type="button" id="sellBtn" class="w-50 btn btn-lg btn-warning">Продать</button>
                             </div>
                         </div>
                     </div>
@@ -91,7 +97,7 @@
         </div>
 
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-md btn-outline-danger">Утилизировать испорченную Кукурузу</button>
+            <button type="button" id="utilizBtn" class="btn btn-md btn-outline-danger">Утилизировать испорченную Кукурузу</button>
         </div>
 <div>
 
@@ -127,16 +133,55 @@
             </ul>
         </div>
     </div>
+    <script>
+        window.userWalletAddress = null
+        const loginButton = document.getElementById('loginButton')
+        const userWallet = document.getElementById('userWallet')
+    
+        function toggleButton() {
+          if (!window.ethereum) {
+            loginButton.innerText = 'MetaMask is not installed'
+            loginButton.classList.remove('bg-purple-500', 'text-white')
+            loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+            return false
+          }
+    
+          loginButton.addEventListener('click', loginWithMetaMask)
+        }
+    
+        async function loginWithMetaMask() {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+            .catch((e) => {
+              console.error(e.message)
+              return
+            })
+          if (!accounts) { return }
+    
+          window.userWalletAddress = accounts[0]
+          userWallet.innerText = window.userWalletAddress
+          loginButton.innerText = 'Sign out of MetaMask'
+    
+          loginButton.removeEventListener('click', loginWithMetaMask)
+          setTimeout(() => {
+            loginButton.addEventListener('click', signOutOfMetaMask)
+          }, 200)
+        }
+    
+        function signOutOfMetaMask() {
+          window.userWalletAddress = null
+          userWallet.innerText = ''
+          loginButton.innerText = 'Sign in with MetaMask'
+    
+          loginButton.removeEventListener('click', signOutOfMetaMask)
+          setTimeout(() => {
+            loginButton.addEventListener('click', loginWithMetaMask)
+          }, 200)
+        }
+    
+        window.addEventListener('DOMContentLoaded', () => {
+          toggleButton()
+        });
+      </script>
 </footer>
 </body>
-<!--<div class="card-body">
-    <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/мес</small></h1>
-    <ul class="list-unstyled mt-3 mb-4">
-        <li>10 пользователей включено</li>
-        <li>2 ГБ хранилища</li>
-        <li>Обычная поддержка по электронной почте</li>
-        <li>Доступ к справочному центру</li>
-    </ul>
-    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Регистрация бесплатно</button>
-</div>-->
 </html>

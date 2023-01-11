@@ -112,4 +112,70 @@ contract CornShop {
     function _compareStrings(string memory a, string memory b) private pure returns (bool) {
         return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))));
     }
+
+    function generateSellPrice() private  { // Цена покупки кукурузы варьируется от 0.001 до 0.002
+        if (_compareStrings(pattern, "random")) {
+            price = (_generateRandomNum(110) + 90) * coeff;
+        }
+        else {
+            if (_compareStrings(pattern, "small")) {
+                price = (_generateRandomNum(260) + 90) * coeff;
+            }
+            else {
+                if (_compareStrings(pattern, "big")) {
+                    price = (_generateRandomNum(410) + 90) * coeff;
+                }
+                else {
+                    if (_compareStrings(pattern, "decreasing")) {
+                        price = (_generateRandomNum(70) + 30) * coeff;
+                    }
+                }
+            }
+        }
+    }
+
+    function precentsToNormal() private {
+        patternToPrecent["random"] = 35;
+        patternToPrecent["small"] = 25;
+        patternToPrecent["big"] = 25;
+        patternToPrecent["decreasing"] = 15;
+    }
+
+    function changePattern() public {
+        if (!_compareStrings(pattern, "nothing")) { // Отнимаем вероятность у паттерна, который был на этой неделе
+            for (uint i = 0; i < 4; i++) {
+                string memory p = idToPattern[i];
+                if (_compareStrings(pattern, p)) {
+                    patternToPrecent[pattern] -= 9;
+                }
+                else {
+                    patternToPrecent[p] += 3;
+                }
+            }
+        }
+
+        uint rand = _generateRandomNum(100); // Случайный выбор паттерна
+        for (uint i = 0; i < 4; i++) {
+            string memory p = idToPattern[i];
+            uint pr = patternToPrecent[p];
+            if (pr < rand) {
+                rand -= pr;
+            }
+            else {
+                pattern = p;
+                break;
+            }
+        }
+        precentsToNormal();
+        generateSellPrice();
+    }
+
+    function _generateRandomNum(uint _modulus) internal returns (uint) {
+        randNonce = randNonce.add(1);
+        return uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus;
+    }
+
+    function _compareStrings(string memory a, string memory b) private pure returns (bool) {
+        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))));
+}
 }
