@@ -1,14 +1,12 @@
 {
     "server": {
       "baseDir": [
-        "./src",
-        "./css",
-        "./js",
+        "./",
         "./build/contracts"
       ],
       "routes": {
         "/vendor": "./node_modules"
       }
     },
-    "startPath": "main.html"
+    "startPath": "/src/index.html"
   }
