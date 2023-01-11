@@ -5,22 +5,65 @@
     <link rel="stylesheet" href="../css/bootstrap.css"/>
     <link rel="stylesheet" href="/lib/bootstrap-icons/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/functions.js"></script>
+    <script src="../src/app.js"></script>
+    
+    <meta charset="UTF-8">
+    <title>CornPopcorn</title>
 </head>
 <body>
 
 <header class="d-flex justify-content-center py-3 bg-dark">
     <ul class="nav nav-pills ">
         <li class="nav-item"><a href="../src/index.html" class="nav-link active bg-warning text-dark" aria-current="page">Главная</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white">Правила</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white">FAQ</a></li>
+        <li class="nav-item"><a href="../src/rules.html" class="nav-link text-white">Правила</a></li>
+        <li class="nav-item"><a href="../src/FAQ.html" class="nav-link text-white">FAQ</a></li>
         <li class="nav-item"><a href="../src/main.html" class="nav-link text-white">Склад и магазин</a></li>
     </ul>
 </header>
 
 <main>
+    <div class="container-fluid px-5 py-5 min-vh-100" id="custom-cards">
+        <h1 class="fw-bold display-6 pb-2 border-bottom text-center">CornPopcorn</h1>
+
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 h-100">
+            <div class="col">
+              <a href="../src/rules.html">
+                <div class="card card-cover h-100 overflow-hidden text-bg-warning rounded-4 shadow-lg" style="background-image: url('../pics/corn_icon.png');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold" id="shadow">Покупай!</h3>
+                    </div>
+                  </div>
+              </a>
+            </div>
+      
+            <div class="col">
+              <a href="../src/rules.html">
+                <div class="card card-cover h-100 overflow-hidden text-bg-warning rounded-4 shadow-lg" style="background-image: url('../pics/popcorn_icon.png');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold" id="shadow">Следи за ценой и продавай вовремя!</h3>
+                    </div>
+                  </div>
+              </a>
+            </div>
+      
+            <div class="col">
+              <a href="../src/rules.html">
+                <div class="card card-cover h-100 overflow-hidden text-bg-warning rounded-4 shadow-lg" style="background-image: url('../pics/bitcoins.png');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                      <h1 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold" id="shadow">Зарабатывай!</h1>
+                    </div>
+                  </div>
+              </a>
+            </div>
+          </div>
+
+    </div>
+
+    
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 fw-normal">Долгожданное обновление!</h1>
+            <h1 class="display-4 fw-normal">Следующее обновление!</h1>
             <p class="lead fw-normal">Сорники и выращивание кукурузы на собственных участках с возможностью расширения участка для посевов!</p>
             <a class="btn btn-outline-secondary" href="#">Скоро</a>
         </div>
@@ -28,67 +71,7 @@
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 
-    <div class="d-md-flex flex-md-equal w-100 ms-md-5 my-md-5 ps-md-3">
-        <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-dark overflow-hidden row d-flex">
-            <div class="col my-5">
-                <img src="../pics/cornField.jpg" alt="cornField" width="60%" height="80%">
-            </div>
-            <div class="my-5 py-3 col">
-                <h2 class="display-5">Покупка кукурузы</h2>
-                <p class="lead h5">Магазин продаёт Кукурузу в воскресенье, с 11:00 до 14:00.
-                Вообще сюда необходимо написать очень много полезного текста, который объясняет работу этого
-                пункта, но в 2 часа ночи, я это писать не буду)</p>
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 ms-md-5 my-md-5 ps-md-3">
-        <div class="col"></div>
-        <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-dark overflow-hidden row d-flex">
-            <div class="col">
-                <img src="../pics/graph.jpeg" alt="cornField" width="60%" height="80%">
-            </div>
-            <div class="my-3 py-3 col">
-                <h2 class="display-5">Магазин формирует цену</h2>
-                <p class="lead">Магазин формирует цену на Кукурузу в зависимости от паттерна,
-                    цена продажи меняется каждый час всего 4 паттерна: случайный, малый пик, большой пик, уменьшение.
-                    Магазин определяет вероятности паттернов. Вообще сюда необходимо написать очень много полезного текста, который объясняет работу этого
-                    пункта, но в 2 часа ночи, я это писать не буду)</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 ms-md-5 my-md-5 ps-md-3">
-        <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-dark overflow-hidden row d-flex">
-            <div class="col">
-                <img src="../pics/money.jpeg" alt="cornField" width="60%" height="80%">
-            </div>
-            <div class="my-3 py-3 col">
-                <h2 class="display-5">Продажа кукурузы</h2>
-                <p class="lead">Кукурузу можно продать с понедельника до субботы, с 8:00 до 22:00. Вообще сюда необходимо написать очень много полезного текста, который объясняет работу этого
-                    пункта, но в 2 часа ночи, я это писать не буду)</p>
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 ms-md-5 my-md-5 ps-md-3">
-        <div class="col"></div>
-        <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-dark overflow-hidden row d-flex">
-            <div class="col">
-                <img src="../pics/BadCorn.jpeg" alt="cornField" width="60%" height="80%">
-            </div>
-            <div class="my-3 py-3 col">
-                <h2 class="display-5">Порча</h2>
-                <p class="lead">Если со дня покупки Кукурузы прошло 7 дней, то её статус меняется со
-                    Свежей на Испорченную. У пользователя есть Инвентарь, место в котором занимает Кукуруза.
-                    Начальный размер инвентаря равен 9. Размер Инвентаря можно увеличить за плату.
-                    Кукурузу можно выкинуть, но только в воскресенье до 11:00. Вообще сюда необходимо написать очень много полезного текста, который объясняет работу этого
-                    пункта, но в 2 часа ночи, я это писать не буду)</p>
-            </div>
-        </div>
-    </div>
+    
 
 </main>
 <footer class="container py-5">
@@ -116,6 +99,7 @@
             <ul class="list-unstyled text-small">
                 <li><a class="link-secondary" href="#">Ещё пункт</a></li>
                 <li><a class="link-secondary" href="#">Фронтендер - недопонятый гений</a></li>
+                <li><a class="link-secondary" href="#">Второй тоже</a></li>
             </ul>
         </div>
     </div>
