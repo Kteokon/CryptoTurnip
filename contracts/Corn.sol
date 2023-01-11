@@ -4,5 +4,5 @@ contract Corn {
     enum Status {
         Fresh,
         Rotten
-    }    
+    }
 }
