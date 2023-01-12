@@ -1,13 +1,8 @@
 pragma solidity >=0.5.0 <0.6.0;
 
-import "../adds/safemath.sol";
-import "./Corn.sol";
+import "./CornStore.sol";
 
-contract CornShop is CornFactory {
-    using SafeMath for uint256;
-    using SafeMath32 for uint32;
-    using SafeMath16 for uint16;
-
+contract CornShop is CornStore {
     uint coeff = 0.00001 ether;
     uint price;
 
@@ -34,13 +29,8 @@ contract CornShop is CornFactory {
 
     function buyCorn(uint amountOfCorn) public payable { // фукнция покупки кукурузы
         require(msg.value == amountOfCorn * price);
-        uint date = block.timestamp + 8 hours; // День покупки
-        date = date - (date % 1 days);
-        // получить Store и проверить, есть ли место
-        Corn[] memory corns = new Corn[](9);
-        for (uint i = 0; i < amountOfCorn; i++){
-            corns[i] = Corn(CornFactory.Status.Fresh, date);
-        }
+        uint _storeId = CornStore.ownerToStore[msg.sender];
+        putCorn(_storeId, amountOfCorn);
     }
 
     function sellCorn(uint amountOfCorn) public payable { // Функция продажи кукурузы
@@ -114,7 +104,7 @@ contract CornShop is CornFactory {
     }
 
     function _generateRandomNum(uint _modulus) internal returns (uint) {
-        randNonce = randNonce.add(1);
+        randNonce++;
         return uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus;
     }
 
