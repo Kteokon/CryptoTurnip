@@ -3,7 +3,7 @@ pragma solidity >=0.5.0 <0.6.0;
 import "../adds/safemath.sol";
 import "./Corn.sol";
 
-contract CornShop is Corn {
+contract CornShop is CornFactory {
     using SafeMath for uint256;
     using SafeMath32 for uint32;
     using SafeMath16 for uint16;
@@ -39,7 +39,7 @@ contract CornShop is Corn {
         // получить Store и проверить, есть ли место
         Corn[] memory corns = new Corn[](9);
         for (uint i = 0; i < amountOfCorn; i++){
-            corns[i] = Corn(Status.Fresh, date);
+            corns[i] = Corn(CornFactory.Status.Fresh, date);
         }
     }
 
@@ -120,5 +120,5 @@ contract CornShop is Corn {
 
     function _compareStrings(string memory a, string memory b) private pure returns (bool) {
         return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))));
-}
+    }
 }
