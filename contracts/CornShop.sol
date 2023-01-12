@@ -34,8 +34,8 @@ contract CornShop is CornStore {
     }
 
     function sellCorn(uint amountOfCorn) public payable { // Функция продажи кукурузы
-        // Найти инвентарь пользователя и убрать кукурузу
-
+        uint _storeId = CornStore.ownerToStore[msg.sender];
+        // Вызвать функцию из Store
     }
 
     function generateBoughtPrice() private { // Цена покупки кукурузы варьируется от 0.001 до 0.002

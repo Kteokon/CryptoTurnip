@@ -2,9 +2,10 @@
 //     loading: false, 
 //     contracts: {}, 
    
-//     load: async () => { 
-//       await App.loadWeb3() 
-//       await App.loadAccount() 
+//     load: async () => {
+//       await App.loadWeb3()
+//       await App.loadAccount()
+//       await App.loadCornShop()
 //     }, 
    
 //     // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8 
@@ -20,7 +21,7 @@
 //         window.web3 = new Web3(ethereum) 
 //         try { 
 //           // Request account access if needed 
-//           await ethereum.enable() 
+//           await eth_requestAccounts
 //           // Acccounts now exposed 
 //           web3.eth.sendTransaction({/* ... */}) 
 //         } catch (error) { 
@@ -41,10 +42,14 @@
 //     }, 
    
 //     loadAccount: async () => { 
-//       // Set the current blockchain account 
-//       App.account = web3.eth.accounts[0] 
-//       console.log(App.account) 
-//     } 
+//       // Set the current blockchain account
+//       web3.eth.getAccounts().then(e => console.log(e[0]));
+//     },
+
+//     loadCornShop: async() => {
+//         const shop = await $.getJSON('CornShop.json')
+//         console.log(shop)
+//     }
 //   } 
    
 //   $(() => { 
