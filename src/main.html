@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="bootstrap.css"/>
+
+<html lang="en" xmlns="">
+<link rel="stylesheet" href="../css/bootstrap.css"/>
 <link rel="stylesheet" href="/lib/bootstrap-icons/font/bootstrap-icons.css"/>
-<script src="functions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="../js/functions.js"></script>
+<script src="../src/app.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>CornPopcorn</title>
 </head>
-<header class="d-flex justify-content-center py-3 bg-dark">
-    <ul class="nav nav-pills ">
-        <li class="nav-item"><a href="#" class="nav-link active bg-warning text-dark" aria-current="page">Главная</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white">Правила</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white">FAQ</a></li>
-    </ul>
-</header>
+
+
 
 <body>
+    <header class="d-flex justify-content-center py-3 bg-dark">
+        <!-- <div id="timeDisplay" class="col text-white d-flex align-items-md-center ms-md-5"></div> -->
+        <ul class="nav nav-pills col justify-content-md-center">
+            <li class="nav-item"><a href="../src/index.html" class="nav-link text-white" aria-current="page">Главная</a></li>
+            <li class="nav-item"><a href="../src/rules.html" class="nav-link text-white">Правила</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white">FAQ</a></li>
+            <li class="nav-item"><a href="../src/main.html" class="nav-link active bg-warning text-dark">Склад и магазин</a></li>
+        </ul>
+        <div class="d-flex">
+            <button id='loginButton' onclick="" class="btn btn-lg btn-warning text-dark">
+                Login with MetaMask
+              </button>
+        </div>
+        <!-- <div class="col"></div> -->
+    </header>
+    <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+<main class="container min-vh-100">
     <div class="container">
         <div class="row row-cols-md-3 justify-content-center" >
             <div class="card text-center h1 my-md-5">
-                <div id="timeDisplay"></div>
+                <div id="dayDisplay"></div>
+                <div id="timeDisplay" class="h4 my-0 fw-normal"></div>
             </div>
         </div>
     </div>
@@ -27,45 +44,144 @@
             <div class="text-center my-md-5 d-flex align-content-md-stretch">
                 <div class="card mx-5 mb-4 rounded-3 shadow-sm flex-grow-1">
                     <div class="card-header py-3 bg-dark">
-                        <h4 class="h1 my-0 fw-normal text-white">Склад</h4>
+                        <h2 class="h2 my-0 fw-normal text-white">Инвентарь</h2>
+                        <h6 class="h6 my-0 fw-normal text-white">(Размер: 9)</h6>
                     </div>
-                    <div class="card-body row my-md-5 px-md-5">
+                    <div class="card-body row">
                         <div class="container">
                             <div class="d-flex">
-                                <h1 class="card-title pricing-card-title me-1">Думаю<small class="text-muted fw-light">Как поставить</small></h1>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>Первое поле</li>
-                                </ul>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>Первое поле</li>
-                                </ul>
+                                <img src="../pics/corn_icon.png" alt="mdo" width="10%" height="10%">
+                                <div class="container d-flex align-self-md-center justify-content-end">
+                                    <p class="h4 px-md-5">Количество: 999</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="d-flex">
+                                <img src="../pics/bitcoins.png" alt="mdo" width="10%" height="10%">
+                                <div class="container d-flex align-self-md-center justify-content-end">
+                                    <p class="h4 px-md-5">Количество: 999</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center my-md-5 d-flex justify-content-center">
+            <div class="text-center my-md-5 d-flex align-content-md-stretch">
                 <div class="card mx-5 mb-4 rounded-3 shadow-sm flex-grow-1">
                     <div class="card-header py-3 bg-dark">
                         <h4 class="h1 my-0 fw-normal text-white">Магазин</h4>
                     </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">Думаю<small class="text-muted fw-light">Как поставить</small></h1>
-                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Купить</button>
-                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Продать</button>
+                    <div class="card-body row">
+                        <div class="container">
+                            <div class="d-flex">
+                                <img src="../pics/corn_icon.png" alt="mdo" width="10%" height="10%">
+                                <div class="container d-flex align-self-md-center justify-content-end">
+                                    <p class="h4 px-md-5">Цена: 0.001</p>
+                                </div>
+                                <button type="button" id="buyBtn" class="w-50 btn btn-lg btn-warning">Купить</button>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="d-flex">
+                                <img src="../pics/popcorn_icon.png" alt="mdo" width="10%" height="10%">
+                                <div class="container d-flex align-self-md-center justify-content-end">
+                                    <p class="h4 px-md-5">Цена: 0.001</p>
+                                </div>
+                                <button type="button" id="sellBtn" class="w-50 btn btn-lg btn-warning">Продать</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="button" id="utilizBtn" class="btn btn-md btn-outline-danger">Утилизировать испорченную Кукурузу</button>
+        </div>
+<div>
+
+</div>
+</main>
+
+<footer class="container py-5">
+    <div class="row">
+        <div class="col-12 col-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+            <small class="d-block mb-3 text-muted">&copy; 2022–2023</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Особенности</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="#">Какая-то ссылка</a></li>
+                <li><a class="link-secondary" href="#">Люди, которые работают с контрактами - очаровашки</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Доп. Ресурсы</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="#">Командная работа - очень важно</a></li>
+                <li><a class="link-secondary" href="#">Быть разработчиком - здорово </a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Важно</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="#">Ещё пункт</a></li>
+                <li><a class="link-secondary" href="#">Фронтендер - недопонятый гений</a></li>
+                <li><a class="link-secondary" href="#">Второй тоже</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        window.userWalletAddress = null
+        const loginButton = document.getElementById('loginButton')
+        const userWallet = document.getElementById('userWallet')
+    
+        function toggleButton() {
+          if (!window.ethereum) {
+            loginButton.innerText = 'MetaMask is not installed'
+            loginButton.classList.remove('bg-purple-500', 'text-white')
+            loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+            return false
+          }
+    
+          loginButton.addEventListener('click', loginWithMetaMask)
+        }
+    
+        async function loginWithMetaMask() {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+            .catch((e) => {
+              console.error(e.message)
+              return
+            })
+          if (!accounts) { return }
+    
+          window.userWalletAddress = accounts[0]
+          userWallet.innerText = window.userWalletAddress
+          loginButton.innerText = 'Sign out of MetaMask'
+    
+          loginButton.removeEventListener('click', loginWithMetaMask)
+          setTimeout(() => {
+            loginButton.addEventListener('click', signOutOfMetaMask)
+          }, 200)
+        }
+    
+        function signOutOfMetaMask() {
+          window.userWalletAddress = null
+          userWallet.innerText = ''
+          loginButton.innerText = 'Sign in with MetaMask'
+    
+          loginButton.removeEventListener('click', signOutOfMetaMask)
+          setTimeout(() => {
+            loginButton.addEventListener('click', loginWithMetaMask)
+          }, 200)
+        }
+    
+        window.addEventListener('DOMContentLoaded', () => {
+          toggleButton()
+        });
+      </script>
+</footer>
 </body>
-<!--<div class="card-body">
-    <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/мес</small></h1>
-    <ul class="list-unstyled mt-3 mb-4">
-        <li>10 пользователей включено</li>
-        <li>2 ГБ хранилища</li>
-        <li>Обычная поддержка по электронной почте</li>
-        <li>Доступ к справочному центру</li>
-    </ul>
-    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Регистрация бесплатно</button>
-</div>-->
 </html>

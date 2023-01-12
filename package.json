@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "lite-server main.html",
+    "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && sexit 1"
   },
   "devDependencies": {
