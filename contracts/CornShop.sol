@@ -27,7 +27,7 @@ contract CornShop is CornStore {
         changePattern();
     }
 
-    function buyCorn(uint amountOfCorn) public payable { // фукнция покупки кукурузы
+    function buyCorn(uint amountOfCorn) public payable { // Функция покупки кукурузы
         require(msg.value == amountOfCorn * price);
         uint _storeId = CornStore.ownerToStore[msg.sender];
         putCorn(_storeId, amountOfCorn);
@@ -35,7 +35,7 @@ contract CornShop is CornStore {
 
     function sellCorn(uint amountOfCorn) public payable { // Функция продажи кукурузы
         uint _storeId = CornStore.ownerToStore[msg.sender];
-        // Вызвать функцию из Store
+        takeCorn(_storeId, amountOfCorn);
     }
 
     function generateBoughtPrice() private { // Цена покупки кукурузы варьируется от 0.001 до 0.002
